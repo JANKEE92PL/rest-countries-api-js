@@ -16,6 +16,24 @@ async function fetchCountry(keyword) {
   let url = "https://restcountries.com/v2/name/";
   let target = url.concat(keyword);
   let response = await fetch(target);
-  let data = await response.text();
-  console.table(data);
+
+  if (response.status === 200) {
+    let data = await response.json();
+    renderData(data[0]);
+  }
+  if (response.status === 404) {
+    searchForm.insertAdjacentHTML(
+      "beforeend",
+      "<div class='wrong'>Wrong Country</div>"
+    );
+    setTimeout(() => {
+      let wrong = document.querySelector(".wrong");
+      wrong.remove();
+    }, 5000);
+  }
+  return;
 }
+
+const renderData = (data) => {
+  flag.src = data.flag;
+};

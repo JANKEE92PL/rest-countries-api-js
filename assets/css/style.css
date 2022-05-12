@@ -1,3 +1,28 @@
 .flag {
   cursor: pointer;
 }
+
+#searchForm {
+  position: relative;
+}
+.wrong {
+  display: block;
+  background-color: lightcoral;
+  position: absolute;
+  top: 36px;
+  left: 196px;
+  border-radius: 10px;
+  z-index: 10;
+  padding: 8px;
+  animation: slidein 400ms ease-out;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(-50px);
+  }
+
+  to {
+    transform: translateX(50px);
+  }
+}
