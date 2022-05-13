@@ -5,7 +5,7 @@
 #searchForm {
   position: relative;
 }
-.wrong {
+#wrong {
   display: block;
   background-color: lightcoral;
   position: absolute;
